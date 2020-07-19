@@ -19,20 +19,18 @@ const prompt = require("readline-sync");
 
 // Function that logs enclosed binding slowly (setTimeout)
 
+function scrollText(string) {
+    for (let i = 0; i <= string.length; i++) {
+        setTimeout(function() { console.clear(" ");
+        console.log(string.slice(0,i))}, i * 20);
+    }
+  }
 
 
 let introScript = `Greetings, being! Welcome to \"ENSLAVE THE PLANET!!\" 
-Thank you for joining our Intergalactic Armada. Your mission: 
-It is the will of the Glorious Supreme Leader for you to travel to 
-Generic-Chocolate-Bar-Galaxy-12 so that you may enslave and dominate 
-a planet called \"Earth,\" which has been identified for its resource 
-abundance, as well as for its exceptionally stupid and odorous 
-life-forms who call themselves \"humans.\"
 
-Enslave these disgusting humans, but DO NOT annihilate them! 
-Also, don't die (lol). We need the humans alive; their slave labor is 
-necessary to harvest the planetary resources. It's WAAAAAAAAY cheaper 
-than commissioning and shipping a bunch of slave robots.`;
-console.clear
+Thank you for joining our Intergalactic Armada. Your mission: It is the will of the Glorious Supreme Leader for you to travel to Generic-Chocolate-Bar-Galaxy-12 so that you may enslave and dominate a planet called \"Earth,\" which has been identified for its resource abundance, as well as for its exceptionally stupid and odorous life-forms who call themselves \"humans.\"
 
- console.log(introScript);
+Enslave these disgusting humans, but DO NOT annihilate them! Also, don't die (lol). We need the humans alive; their slave labor is necessary to harvest the planetary resources. It's WAAAAAAAAY cheaper than commissioning and shipping a bunch of slave robots.`;
+
+scrollText(introScript);
