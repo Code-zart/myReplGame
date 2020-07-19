@@ -22,7 +22,7 @@ const prompt = require("readline-sync");
 
 
 let introScript = `Greetings, being! Welcome to \"ENSLAVE THE PLANET!!\" 
-Thank you for joining our Intergalactic Armada. Your mission\: 
+Thank you for joining our Intergalactic Armada. Your mission: 
 It is the will of the Glorious Supreme Leader for you to travel to 
 Generic-Chocolate-Bar-Galaxy-12 so that you may enslave and dominate 
 a planet called \"Earth,\" which has been identified for its resource 
@@ -33,6 +33,6 @@ Enslave these disgusting humans, but DO NOT annihilate them!
 Also, don't die (lol). We need the humans alive; their slave labor is 
 necessary to harvest the planetary resources. It's WAAAAAAAAY cheaper 
 than commissioning and shipping a bunch of slave robots.`;
-
+console.clear
 
  console.log(introScript);
