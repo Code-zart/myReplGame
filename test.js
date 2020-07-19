@@ -4,4 +4,4 @@ const test = (string) => {
 
 test("hello");
 
-console.log("Hello");
+// console.log("Hello");
