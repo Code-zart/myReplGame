@@ -19,17 +19,11 @@ Strings for all Round 0 and Round 1 script.
 
 Function that logs enclosed binding slowly (setTimeout)*/
 
-/*const slowScroll = (string) => {
-    for (let i = 0; i < string.length; i++){*/
-      console.log(string[i], 20);
-    }
-}
-   
-slowScroll("hello";)
 
-let introScript = `Greetings, being! Welcome to \"ENSLAVE THE PLANET!!\" 
-Thank you for joining our Intergalactic Armada. Your mission: 
-It is the will of the Glorious Supreme Leader for you to travel to 
+
+let introScript = `Greetings, being! Welcome to \"ENSLAVE THE PLANET!!\" `
+Thank you for joining our Intergalactic Armada. Your mission\: 
+`It is the will of the Glorious Supreme Leader for you to travel to 
 Generic-Chocolate-Bar-Galaxy-12 so that you may enslave and dominate 
 a planet called \"Earth,\" which has been identified for its resource 
 abundance, as well as for its exceptionally stupid and odorous 
@@ -41,4 +35,4 @@ necessary to harvest the planetary resources. It's WAAAAAAAAY cheaper
 than commissioning and shipping a bunch of slave robots.`;
 
 
-slowScroll(introScript);
+console.log(introScript);
