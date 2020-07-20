@@ -1,4 +1,4 @@
-const prompt = require("readline-sync");
+const readline = require("readline-sync");
 
 
 // Introduction/Round 0: The player is introduced to the game, enters their name and planet of origin, and 
@@ -19,13 +19,8 @@ const prompt = require("readline-sync");
 
 // Function that logs enclosed binding slowly (setTimeout)
 
-function scrollText(string) {
-    for (let i = 0; i <= string.length; i++) {
-        setTimeout(function() { console.clear(" ");
-        console.log(string.slice(0,i))}, i * 20);
-    }
-  }
 
+//  ROUND O DECLARATIONS
 
 let introScript = `Greetings, being! Welcome to \"ENSLAVE THE PLANET!!\" 
 
@@ -33,4 +28,47 @@ Thank you for joining our Intergalactic Armada. Your mission: It is the will of 
 
 Enslave these disgusting humans, but DO NOT annihilate them! Also, don't die (lol). We need the humans alive; their slave labor is necessary to harvest the planetary resources. It's WAAAAAAAAY cheaper than commissioning and shipping a bunch of slave robots.`;
 
+let defaultName = "Ass-Face"
+
+let humanSpy = "WHATT?!? NO! How has a pathetic human infiltrated our Intergalactic Armada?? DIE, HUMAN!!!!!!!";
+
+function scrollText(string) {
+    for (let i = 0; i <= string.length; i++) {
+        setTimeout(function() { console.clear(" ");
+        console.log(string.slice(0,i))}, i * 20);
+    }
+  }
+
+function playerName() {
+    let name = readline.question(scrollText("What's your name, being?"), {defaultInput: defaultName});
+    if (name == defaultName || name == null || name || undefined) {
+        scrollText("Really? You don't have a name? Okay then, your name is Ass-Face.");
+    }  else {
+        scrollText("Outstanding! A name becoming of an intergalactic dictator-to-be.");
+    }   
+}
+
+function playerPlanet() {
+  let planet = readline.question(`And from whence do you hail, ${name}?`);
+  if (planet.toLowerCase == "earth") {
+      scrollText(humanSpy);
+  }  else {
+    begOfRdOne()
+  }
+}
+
+// ROUND 0
+
 scrollText(introScript);
+
+playerName();
+
+playerPlanet();
+
+// ROUND 1 DECLARATIONS
+
+// let rd1Opener = `How do you wish to initiate your offensive, ${name} of ${planet}?`;
+
+// function begOfRdOne() {
+//      scrollText(rd1Opener);
+// }
