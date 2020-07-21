@@ -1,32 +1,16 @@
 const readline = require("readline-sync");
 
-// function scrollText(string) {
-//     for (let i = 0; i <= string.length; i++) {
-//         setTimeout(function() { console.clear(" ");
-//         console.log(string.slice(0,i))}, i * 20);
-//     }
-//   }
-
-// Introduction/Round 0: The player is introduced to the game, enters their name and planet of origin, and 
-// proceeds to Round 1.
-
-// The name cannot be null, undefined, or a string containing only empty spaces, but any other value should be 
-// accepted and wrapped in a global binding as a string. (Max 30 characters)
-
-// The planet should fulfill the same but also cannot be "Earth." If the planet entered is Earth the player 
-// loses the game immediately. 
-
-// TO DECLARE/INIT: Function that accepts only the numbers 1, 2, or 3 as inputs. If the player enters anything 
-// else it prompts them again, and creates if/else options for the rest.
-
-// Function that asks the player if they wish to play again once they lose (only accepts y/n).
-
-// Strings for all Round 0 and Round 1 script.
-
-// Function that logs enclosed binding slowly (setTimeout)
+function playAgain() {
+  if (readline.keyInYN(`Play again? `) == false) {
+    console.log(`Bye, pathetic loser.`)
+    process.exit()
+  } else gameStart();
+}
 
 
 //  ROUND O
+
+let playerName, playerPlanet;
 
 let introScript = `Greetings, being! Welcome to \"ENSLAVE THE PLANET!!\" 
 
@@ -34,46 +18,43 @@ Thank you for joining our Intergalactic Armada. Your mission: It is the will of 
 
 Enslave these disgusting humans, but DO NOT annihilate them! Also, don't die (lol). We need the humans alive; their slave labor is necessary to harvest the planetary resources. It's WAAAAAAAAY cheaper than commissioning and shipping a bunch of slave robots.`;
 
-let defaultName = `Ass-Face`
-
-console.log(introScript);
-
-playerName = () => {
-    global.namePlayer = readline.question("What's your name, being?", {defaultInput: defaultName});
-    if (global.namePlayer == defaultName || 
-        global.namePlayer == null || 
-        global.namePlayer == undefined) {
-        console.log(`Really? You don't have a name? Okay then, your name is ${global.namePlayer}`);
-    }  else {
-        console.log(`${global.namePlayer}! Outstanding! A name becoming of an intergalactic dictator-to-be.`);
-    }   
-}
-
-playerName();
+let defaultName = `Ass-Face`;
 
 let humanSpy = `WHATT?!? NO! How has a pathetic human infiltrated our Intergalactic Armada?? DIE, HUMAN!!!!!!!`;
 
-let rdOneScript = `How do you wish to initiate your offensive, ${global.namePlayer} of ${global.planetPlayer}?`;
+console.log(introScript);
 
-playerPlanet = () => {
-  global.planetPlayer = readline.question(`And from whence do you hail, ${global.namePlayer}?`);
-  if (global.planetPlayer == "earth") {
-      console.log(humanSpy);
-  }  else {
-    begOfRdOne()
+getPlayerName = () => {
+  playerName = readline.question(`What's your name, being? ` , {defaultInput: defaultName});
+    if (playerName == defaultName || 
+        playerName == null || 
+        playerName == undefined) {
+        console.log(`Really? You don't have a name? Okay then, your name is ${defaultName}.`);
+        playerName = defaultName;
+    } else {
+        console.log(`${playerName}! Outstanding! A name becoming of an intergalactic dictator-to-be.`);
+    }   
   }
+
+getPlayerName();
+
+
+getPlayerPlanet = () => {
+  if ((readline.question(`And from whence do you hail, ${playerName}?`.toLowerCase()) == "earth")) {
+      console.log(humanSpy);
+      setTimeout(playAgain(), 3000);
+  }  else return playerPlanet;
 }
 
-playerPlanet();
-
-
-
-
-
-
+getPlayerPlanet();
 
 
 // ROUND 1
+
+
+let rdOneScript = `How do you wish to initiate your offensive, ${global.namePlayer} of ${global.planetPlayer}?`;
+
+
 
 function begOfRdOne() {
      console.log(rdOneScript);
